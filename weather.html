@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+
+fetch("https://api.openweathermap.org/data/2.5/weather?q=Gujarat&units=metric&appid=3498cae6b7df44ff7956255f3030fe6d")
+.then((res)=>{
+  return res.json()
+
+   })
+  .then((data)=>{
+    console.log(data);
+    display(data)
+})
+
+function display(data){
+
+  let div=document.createElement("div")
+  let temp=document.createElement("p")
+  temp.innerHTML=data.main.temp
+
+    let name=document.createElement("p")
+  name.innerHTML=data.name
+
+  div.append(name,temp)
+  document.querySelector("body").append(div)
+}
+</script>
+</body>
+</html>
